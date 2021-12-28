@@ -11,20 +11,31 @@
 
 stack_arr100 stack ; 
 
+/*********************************
+function take data ( charecter ) 
+and push it to stack if stack not full
+*********************************/
+ 
 void push ( uint8_t u8_data )
 {
-	if ( stack.top == 99 )
+	if ( stack.top == 99 ) 		// check if stack is full 
 		printf("\nstack overflow");
 	else
 	{
-		stack.top++ ;
+		stack.top++ ;				
 		stack.string[stack.top] = u8_data ;	
 	}
 }
+
+/*********************************
+function return data ( charecter ) 
+and pop it from stack if stack not empty
+*********************************/
+
 uint8_t pop ()
 {
 	uint8_t u8_data ;
-	if ( stack.top == -1 )
+	if ( stack.top == -1 )      // check if stack is empty 
 		printf("\nstack is empty");
 	else
 	{
@@ -33,6 +44,11 @@ uint8_t pop ()
 	}
 	return u8_data ;
 }
+
+/********************************
+function to print stack elemnts 
+********************************/
+
 void printStack ()
 {
 	uint8_t u8_index ;
@@ -40,6 +56,11 @@ void printStack ()
 	for(u8_index = 0 ; u8_index <= stack.top ; u8_index++)
 		printf("%c",stack.string[u8_index]);
 }
+
+/*****************************************
+function to check if every open bracket 
+find its close bracket 
+****************************************/
 
 uint8_t matchingPair ( uint8_t u8_fbracket , uint8_t u8_lbracket )
 {
@@ -52,6 +73,13 @@ uint8_t matchingPair ( uint8_t u8_fbracket , uint8_t u8_lbracket )
     else
         return 0;
 }
+
+/*****************************************
+function to check if every open bracket 
+find its close bracket 
+in sequance make it balanced exprission
+take array and return "balanced" or "unblanced"  
+****************************************/
 
 uint8_t * balancedParentheses ( uint8_t * exprission )
 {

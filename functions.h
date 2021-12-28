@@ -6,6 +6,7 @@
  
 #ifndef __FUNCTIONS_H__
 #define __FUNCTIONS_H__
+
 #include "types.h"
 
 void push ( uint8_t u8_data );
